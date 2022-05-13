@@ -14,7 +14,7 @@ function WeatherSearchBar() {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
-    async function fetchData() {
+    const fetchData = async () => {
       const data = await fetch(
         `https://www.metaweather.com/api/location/search/?query=${searchTerm}`
       );
@@ -27,22 +27,18 @@ function WeatherSearchBar() {
           `https://www.metaweather.com/api/location/${weather.woeid}/`
         );
         const weatherDetails = await weatherData.json();
-
+        const [weatherInfo] = weatherDetails['consolidated_weather'];
         dispatch(
           weathersActions.addWeather({
             title: weatherDetails.title,
-            description:
-              weatherDetails['consolidated_weather'][0]['weather_state_name'],
-            temperature: weatherDetails['consolidated_weather'][0]['the_temp'],
-            abbr: weatherDetails['consolidated_weather'][0][
-              'weather_state_abbr'
-            ],
+            id: weather.woeid,
+            description: weatherInfo['weather_state_name'],
+            temperature: weatherInfo['the_temp'].toFixed(2),
+            abbr: weatherInfo['weather_state_abbr'],
           })
         );
       }
-
-      return;
-    }
+    };
 
     fetchData();
   };

@@ -1,0 +1,18 @@
+.item {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: 700;
+}
+
+.icon {
+  height: 100px;
+}
+
+.info button {
+  margin: 5px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}

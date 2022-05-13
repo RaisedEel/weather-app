@@ -1,4 +1,8 @@
 .main {
   background: #c3fbf9;
   height: 90vh;
+  overflow: auto;
+  background-image: url(../../assets/header.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
