@@ -12,7 +12,7 @@ const weathersSlice = createSlice({
     resetWeathers(state) {
       state.weathers = [];
     },
-  }
+  },
 });
 
 export const weathersActions = weathersSlice.actions;

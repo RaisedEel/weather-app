@@ -1,5 +1,11 @@
+import { useSelector } from 'react-redux';
+
+import WeathersList from '../components/weather/WeatherList';
+
 function FavoritesPage() {
-  return <div>This is the favorites page</div>;
+  const { favorites } = useSelector((state) => state.favorites);
+
+  return <WeathersList weathers={favorites} />;
 }
 
 export default FavoritesPage;

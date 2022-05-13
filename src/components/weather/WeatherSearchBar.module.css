@@ -1,0 +1,24 @@
+.form {
+  width: fit-content;
+  height: 5vh;
+  display: flex;
+  padding: 5px;
+  margin: 1vh auto;
+  background-color: whitesmoke;
+  border-radius: 8px;
+  font-size: 1.3rem;
+}
+
+.form label {
+  margin-right: 5vw;
+}
+
+.form button {
+  color: whitesmoke;
+  background-color: #0082f0;
+}
+
+.form button,
+.form input {
+  font-size: 1.3rem;
+}

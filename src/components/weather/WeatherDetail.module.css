@@ -1,0 +1,25 @@
+.details {
+  width: 80%;
+  margin: 1vh auto;
+  padding: 1%;
+  background-color: whitesmoke;
+  border-radius: 8px;
+}
+
+.details h1 {
+  display: flex;
+}
+
+.details h1 button {
+  margin-left: auto;
+  color: whitesmoke;
+  background-color: #0082f0;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.details p {
+  text-align: center;
+  margin: 3vh 0;
+  font-size: 1.3rem;
+}

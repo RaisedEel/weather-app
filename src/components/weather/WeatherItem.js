@@ -1,13 +1,36 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { favoritesActions } from '../../store/favorites-slice';
 import Card from '../ui/Card';
 import classes from './WeatherItem.module.css';
 
 function WeatherItem(props) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { favorites } = useSelector((state) => state.favorites);
+  const [isFavorite, setIsFavorite] = useState(
+    favorites.some((favorite) => favorite.id === props.id)
+  );
 
   const onMoreInformationHandler = () => {
     navigate(`/weather/${props.id}`);
+  };
+
+  const onFavoriteHandler = () => {
+    if (isFavorite) {
+      setIsFavorite(false);
+      dispatch(favoritesActions.removeFavorite(props.id));
+    } else {
+      setIsFavorite(true);
+      dispatch(
+        favoritesActions.addFavorite({
+          ...props,
+        })
+      );
+    }
   };
 
   return (
@@ -24,7 +47,9 @@ function WeatherItem(props) {
             <p>{props.description}</p>
             <p>Temperature: {props.temperature}°C</p>
             <button onClick={onMoreInformationHandler}>More Information</button>
-            <button>Set to Favorite</button>
+            <button onClick={onFavoriteHandler}>
+              {isFavorite ? 'UnFavorite' : 'Set to Favorite'}
+            </button>
           </div>
         </div>
       </Card>

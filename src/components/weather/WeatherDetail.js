@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+
+import classes from './WeatherDetail.module.css';
 
 function WeatherDetail() {
   const params = useParams();
+  const navigate = useNavigate();
   const [details, setDetails] = useState({});
 
   useEffect(() => {
@@ -13,6 +16,7 @@ function WeatherDetail() {
 
       const weatherDetails = await data.json();
       setDetails({
+        title: weatherDetails.title,
         ...weatherDetails['consolidated_weather'][0],
       });
     };
@@ -21,16 +25,39 @@ function WeatherDetail() {
   }, [params]);
 
   return (
-    <div>
-      <p>Date: {details['applicable_date']}</p>
-      <p>Description: </p>
-      <p>Wind Speed: </p>
-      <p>Wind Direction: </p>
-      <p>Min Temp: Max Temp: Temp:</p>
-      <p>Air Pressure: </p>
-      <p>Humidity: </p>
-      <p>Visibility: </p>
-      <p>Accuracy: </p>
+    <div className={classes.details}>
+      <h1>
+        {details.title} <button onClick={() => navigate(-1)}>Back</button>
+      </h1>
+      <p>
+        <strong>Date:</strong> {details['applicable_date']}
+      </p>
+      <p>
+        <strong>Description:</strong> {details['weather_state_name']}
+      </p>
+      <p>
+        <strong>Wind Speed:</strong> {details['wind_speed']} Mph
+      </p>
+      <p>
+        <strong>Wind Direction:</strong> {details['wind_direction_compass']}
+      </p>
+      <p>
+        <strong>Min Temp:</strong> {details['min_temp']}°C,{' '}
+        <strong>Max Temp:</strong> {details['max_temp']}°C,{' '}
+        <strong>Normal Temp:</strong> {details['the_temp']}°C
+      </p>
+      <p>
+        <strong>Air Pressure:</strong> {details['air_pressure']} mbar
+      </p>
+      <p>
+        <strong>Humidity: </strong> {details.humidity} %
+      </p>
+      <p>
+        <strong>Visibility:</strong> {details.visibility} Miles
+      </p>
+      <p>
+        <strong>Accuracy of Prediction:</strong> {details.predictability} %
+      </p>
     </div>
   );
 }
