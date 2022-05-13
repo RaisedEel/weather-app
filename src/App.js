@@ -6,17 +6,20 @@ import { weathersActions } from './store/weathers-slice';
 import FavoritesPage from './pages/FavoritesPage';
 import LocationDetailPage from './pages/LocationDetailPage';
 import MainPage from './pages/MainPage';
+import { alertActions } from './store/alert-slice';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    
     const initializeStore = async () => {
       const locations = [
         638242, 1521894, 2165352, 44418, 116545, 2122265, 2459115, 455827,
         1105779, 1118370,
       ];
 
+      dispatch(alertActions.setAlert());
       for (const location of locations) {
         const weatherData = await fetch(
           `https://www.metaweather.com/api/location/${location}/`
@@ -33,6 +36,7 @@ function App() {
           })
         );
       }
+      dispatch(alertActions.hideAlert());
     };
 
     initializeStore();

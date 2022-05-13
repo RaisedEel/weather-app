@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
+import { alertActions } from '../../store/alert-slice';
 import classes from './WeatherDetail.module.css';
 
 function WeatherDetail() {
+  const dispatch = useDispatch();
   const params = useParams();
   const navigate = useNavigate();
   const [details, setDetails] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
+      dispatch(alertActions.setAlert());
       const data = await fetch(
         `https://www.metaweather.com/api/location/${params.locationId}/`
       );
@@ -19,15 +23,16 @@ function WeatherDetail() {
         title: weatherDetails.title,
         ...weatherDetails['consolidated_weather'][0],
       });
+      dispatch(alertActions.hideAlert());
     };
 
     fetchData();
-  }, [params]);
+  }, [params, dispatch]);
 
   return (
     <div className={classes.details}>
       <h1>
-        {details.title} <button onClick={() => navigate(-1)}>Back</button>
+        Location: {details.title} <button onClick={() => navigate(-1)}>Back</button>
       </h1>
       <p>
         <strong>Date:</strong> {details['applicable_date']}

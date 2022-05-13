@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { alertActions } from '../../store/alert-slice';
 import { weathersActions } from '../../store/weathers-slice';
 import classes from './WeatherSearchBar.module.css';
 
@@ -21,6 +22,7 @@ function WeatherSearchBar() {
     }
 
     const fetchData = async () => {
+      dispatch(alertActions.setAlert());
       const data = await fetch(
         `https://www.metaweather.com/api/location/search/?query=${searchTerm}`
       );
@@ -44,6 +46,7 @@ function WeatherSearchBar() {
           })
         );
       }
+      dispatch(alertActions.hideAlert());
     };
 
     fetchData();

@@ -4,3 +4,11 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+.notFound {
+  width: fit-content;
+  margin: 1vh auto;
+  padding: 0 2.5%;
+  background-color: whitesmoke;
+  border-radius: 8px;
+}
