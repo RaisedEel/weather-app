@@ -4,14 +4,15 @@ import WeatherItem from './WeatherItem';
 import classes from './WeatherList.module.css';
 
 function WeathersList(props) {
+  console.log(props.weathers);
   return (
     <Fragment>
-      {props.weathers && <ul className={classes.list}>
+      {!!props.weathers.length && <ul className={classes.list}>
         {props.weathers.map((weather) => (
-          <WeatherItem key={weather.location} {...weather} />
+          <WeatherItem key={weather.title} {...weather} />
         ))}
       </ul>}
-      {!props.weathers && <div>Search a location first.</div>}
+      {!props.weathers.length && <div>Search a location first.</div>}
     </Fragment>
   );
 }
