@@ -1,0 +1,22 @@
+.menu {
+  width: 40%;
+}
+
+.links {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  list-style: none;
+}
+
+.menu li {
+  margin: 0 1%;
+  padding: 0.5vh 5%;
+  background-color: whitesmoke;
+  border-radius: 8px;
+}
+
+.menu a {
+  color: black;
+  text-decoration: none;
+}

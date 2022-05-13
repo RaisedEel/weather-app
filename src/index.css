@@ -3,3 +3,10 @@
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+html {
+  box-sizing: border-box;
+
+  /* calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width]))); */
+  font-size: calc(12px + (24 - 12) * ((100vw - 250px) / (2000 - 250)));
+}

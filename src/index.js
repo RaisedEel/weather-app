@@ -4,10 +4,13 @@ import { HashRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
+import Layout from './components/layout/Layout';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <HashRouter>
-    <App />
+    <Layout>
+      <App />
+    </Layout>
   </HashRouter>
 );
