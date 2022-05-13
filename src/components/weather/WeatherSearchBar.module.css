@@ -16,6 +16,8 @@
 .form button {
   color: whitesmoke;
   background-color: #0082f0;
+  margin-left: 5px;
+  padding: 0 5px;
 }
 
 .form button,

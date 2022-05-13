@@ -1,5 +1,7 @@
+import WeatherDetail from '../components/weather/WeatherDetail';
+
 function LocationDetailPage() {
-  return <div>This is the details page</div>;
+  return <WeatherDetail />;
 }
 
 export default LocationDetailPage;

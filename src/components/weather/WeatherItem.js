@@ -35,7 +35,13 @@ function WeatherItem(props) {
 
   return (
     <li>
-      <Card className={classes.item}>
+      <Card
+        className={
+          isFavorite
+            ? `${classes.item} ${classes['favorite_item']}`
+            : classes.item
+        }
+      >
         <h1>{props.title}</h1>
         <div className={classes.content}>
           <img

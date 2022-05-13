@@ -1,9 +1,9 @@
 .header {
-  height: 10vh;
+  height: 9.9vh;
   display: flex;
   align-items: center;
   background-color: #0082f0;
-  border-bottom: 1px solid whitesmoke;
+  border-bottom: 0.1vh solid whitesmoke;
 }
 
 .header h1 {

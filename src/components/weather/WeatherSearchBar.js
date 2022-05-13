@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { weathersActions } from '../../store/weathers-slice';
 import classes from './WeatherSearchBar.module.css';
 
 function WeatherSearchBar() {
   const dispatch = useDispatch();
-  const [searchTerm, setSearchTerm] = useState('');
+  const { searchTerm: oldSearchTerm } = useSelector((state) => state.weathers);
+  const [searchTerm, setSearchTerm] = useState(oldSearchTerm || '');
 
   const onChangeTermHandler = (event) => {
     setSearchTerm(event.target.value);
@@ -15,7 +16,7 @@ function WeatherSearchBar() {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
-    if(searchTerm.length === 0){
+    if (searchTerm.length === 0) {
       return;
     }
 
@@ -46,6 +47,7 @@ function WeatherSearchBar() {
     };
 
     fetchData();
+    dispatch(weathersActions.replaceSearchTerm(searchTerm));
   };
 
   return (

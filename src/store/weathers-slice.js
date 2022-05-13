@@ -4,6 +4,7 @@ const weathersSlice = createSlice({
   name: 'weathers',
   initialState: {
     weathers: [],
+    searchTerm: '',
   },
   reducers: {
     addWeather(state, actions) {
@@ -11,6 +12,9 @@ const weathersSlice = createSlice({
     },
     resetWeathers(state) {
       state.weathers = [];
+    },
+    replaceSearchTerm(state, action) {
+      state.searchTerm = action.payload;
     },
   },
 });
