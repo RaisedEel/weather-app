@@ -8,6 +8,7 @@ import classes from './WeatherSearchBar.module.css';
 function WeatherSearchBar() {
   const dispatch = useDispatch();
   const { searchTerm: oldSearchTerm } = useSelector((state) => state.weathers);
+  // Guarda el termino de búsqueda
   const [searchTerm, setSearchTerm] = useState(oldSearchTerm || '');
 
   const onChangeTermHandler = (event) => {
@@ -23,6 +24,7 @@ function WeatherSearchBar() {
 
     const fetchData = async () => {
       dispatch(alertActions.setAlert());
+      // Se obtienen primero los ids de las ciudades
       const data = await fetch(
         `https://www.metaweather.com/api/location/search/?query=${searchTerm}`
       );
@@ -31,6 +33,7 @@ function WeatherSearchBar() {
 
       dispatch(weathersActions.resetWeathers());
       for (const location of foundLocations) {
+        // Aquí ya se obtiene la temperatura y la descripción
         const weatherData = await fetch(
           `https://www.metaweather.com/api/location/${location.woeid}/`
         );

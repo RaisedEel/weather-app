@@ -10,7 +10,10 @@ function WeatherItem(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // UseSelector permite obtener la lista de favoritos
   const { favorites } = useSelector((state) => state.favorites);
+
+  // Aquí se checa que si el elemento ya se encuentra en la lista de favoritos
   const [isFavorite, setIsFavorite] = useState(
     favorites.some((favorite) => favorite.id === props.id)
   );

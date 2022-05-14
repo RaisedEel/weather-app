@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Redux Slice para guardar las ciudades encontradas
+// en la barra de búsqueda, también guarda el término
 const weathersSlice = createSlice({
   name: 'weathers',
   initialState: {

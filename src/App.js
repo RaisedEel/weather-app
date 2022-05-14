@@ -12,7 +12,6 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    
     const initializeStore = async () => {
       const locations = [
         638242, 1521894, 2165352, 44418, 116545, 2122265, 2459115, 455827,

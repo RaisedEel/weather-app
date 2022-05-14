@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Redux Slice para guardar las ciudades favoritas
 const favoritesSlice = createSlice({
   name: 'favorites',
   initialState: {

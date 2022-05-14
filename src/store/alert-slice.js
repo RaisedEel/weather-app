@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Redux Slice para controlar el mensaje de espera
 const alertSlice = createSlice({
   name: 'alert',
   initialState: {

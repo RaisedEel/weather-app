@@ -5,8 +5,9 @@ import WeathersList from '../components/weather/WeatherList';
 import WeatherSearchBar from '../components/weather/WeatherSearchBar';
 
 function MainPage() {
+  // UseSelector permite obtener la lista de climas de las ciudades
   const { weathers } = useSelector((state) => state.weathers);
-  
+
   return (
     <Fragment>
       <WeatherSearchBar />
