@@ -5,6 +5,8 @@ https://raisedeel.github.io/weather-app/
 
 ## Aviso Importante para usar el Proyecto:
 
+### Se agrego un CORS proxy para que el proyecto pueda ser utilizada sin necesidad de la extensión, sin embargo si aparecen errores por CORS al utilizar el proyecto, sigue las instrucciones de abajo para instalar la extensión:
+
 La api https://www.metaweather.com/api/ no permite CORS, por lo tanto para usar la aplicación
 es necesario descargar la siguiente extensión que se salta esto:
 
