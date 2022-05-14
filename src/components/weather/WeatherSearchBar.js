@@ -26,7 +26,7 @@ function WeatherSearchBar() {
       dispatch(alertActions.setAlert());
       // Se obtienen primero los ids de las ciudades
       const data = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${searchTerm}`
+        `https://www.metaweather.com/api/location/search/?query=${searchTerm}`
       );
 
       const foundLocations = await data.json();
@@ -35,7 +35,7 @@ function WeatherSearchBar() {
       for (const location of foundLocations) {
         // Aquí ya se obtiene la temperatura y la descripción
         const weatherData = await fetch(
-          `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${location.woeid}/`
+          `https://www.metaweather.com/api/location/${location.woeid}/`
         );
         const weatherDetails = await weatherData.json();
         const [weatherInfo] = weatherDetails['consolidated_weather'];

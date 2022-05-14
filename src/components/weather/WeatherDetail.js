@@ -15,7 +15,7 @@ function WeatherDetail() {
     const fetchData = async () => {
       dispatch(alertActions.setAlert());
       const data = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${params.locationId}/`
+        `https://www.metaweather.com/api/location/${params.locationId}/`
       );
 
       const weatherDetails = await data.json();
