@@ -5,9 +5,9 @@ https://raisedeel.github.io/weather-app/
 
 ## Aviso Importante para usar el Proyecto:
 
-### Se agrego un CORS proxy para que el proyecto desplegado pueda ser utilizado sin necesidad de la extensión, sin embargo esto solo permite hacer 60 solicitudes cada hora, por lo tanto el código fuente no utiliza este proxy. Si deseas utilizar el proyecto a su completo potencial sigue las instrucciones de abajo para instalar la extensión e implementar el proyecto de forma local.
+### Ultima actualización. Para poder usar ya sea el proyecto desplegado o un clon por medio de git clone, debes utilizar la extensión Moesif Origin & CORS Changer. Abajo hay instrucciones de como descargar esta extensión. Siento mucho cualquier problema causado.
 
-## Instalación de la Extensión:
+## Instalación de la Extensión Moesif:
 
 La api https://www.metaweather.com/api/ no permite CORS, por lo tanto para usar la aplicación
 es necesario descargar la siguiente extensión que se salta esto:
